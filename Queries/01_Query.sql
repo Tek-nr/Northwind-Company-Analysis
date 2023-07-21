@@ -17,8 +17,7 @@ Finally order the results by unit price in a descending order (highest first).
 
 -- Solution Query
 
-SELECT 
-	ProductName, UnitPrice 
+SELECT ProductName, UnitPrice 
 FROM Products
 WHERE UnitPrice BETWEEN 20 AND 50
 AND Discontinued = 0
