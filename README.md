@@ -5,7 +5,7 @@ The Northwind database contains the sales data for a fictitious company called N
 
 ## Table Of Contents
 * [Dataset](#-dataset)
-* [Business Question](#️-business-question)
+* [Business Questions](#️-business-questions)
 
  ## Dataset
 
