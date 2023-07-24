@@ -38,10 +38,8 @@ GROUP BY
 	END
 ORDER BY
 	C.CategoryName,
-	CASE 
-			WHEN P.UnitPrice < 20 THEN '1. Below $20'
-			WHEN P.UnitPrice >= 20 AND P.UnitPrice < 50 THEN '2. $20 - $50'
-			WHEN P.UnitPrice > 50 THEN '3. Over $50'
-	END
+	PriceRange
 
 -- The error occurred when I tried to type PriceRange instead of the Case.
+
+
