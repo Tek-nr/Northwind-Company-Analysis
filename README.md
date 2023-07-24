@@ -278,7 +278,3 @@ Output example
 </summary>
 
 ![Q10_output](/img/Q10.png)
-
-
-
-<p>&copy; 2021 Leah Nguyen</p>
