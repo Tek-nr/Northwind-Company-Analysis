@@ -19,13 +19,19 @@ Finally order the results by total sales amount including discount (descending).
 
 WITH KPI AS (
 SELECT
-	CONCAT(E.FirstName,' ', E.LastName) AS EmployeeName,
+	CONCAT(E.FirstName,' ', E.LastName) 
+		AS EmployeeName,
 	E.Title,
-	ROUND(SUM(OD.UnitPrice*OD.Quantity),2) AS TotalSaleAmountExcludingDiscount,
-	ROUND(SUM((1-OD.Discount)*(OD.UnitPrice*OD.Quantity)),2) AS TotalSaleAmountIncludingDiscount,
-	ROUND(SUM(OD.Discount*OD.UnitPrice*OD.Quantity),2) AS TotalDiscountAmount,
-	COUNT(DISTINCT OD.OrderID) AS TotalOrder,
-	COUNT(*) AS TotalEntries
+	ROUND(SUM(OD.UnitPrice*OD.Quantity),2) 
+		AS TotalSaleAmountExcludingDiscount,
+	ROUND(SUM((1-OD.Discount)*(OD.UnitPrice*OD.Quantity)),2) 
+		AS TotalSaleAmountIncludingDiscount,
+	ROUND(SUM(OD.Discount*OD.UnitPrice*OD.Quantity),2) 
+		AS TotalDiscountAmount,
+	COUNT(DISTINCT OD.OrderID) 
+		AS TotalOrder,
+	COUNT(*) 
+		AS TotalEntries
 FROM	
 	Employees E
 INNER JOIN
@@ -36,12 +42,14 @@ GROUP BY
 	CONCAT(E.FirstName,' ', E.LastName),
 	E.Title
 )
-
 SELECT
 	* ,
-	ROUND(SUM(TotalSaleAmountExcludingDiscount/TotalOrder),2) AS AverageAmountPerOrder,
-	ROUND(SUM(TotalSaleAmountExcludingDiscount/TotalEntries),2) AS AverageAmountPerEntry,
-	ROUND(SUM((TotalDiscountAmount*100)/TotalSaleAmountExcludingDiscount),2) AS TotalDiscountPercentage
+	ROUND(SUM(TotalSaleAmountExcludingDiscount/TotalOrder),2) 
+		AS AverageAmountPerOrder,
+	ROUND(SUM(TotalSaleAmountExcludingDiscount/TotalEntries),2) 
+		AS AverageAmountPerEntry,
+	ROUND(SUM((TotalDiscountAmount*100)/TotalSaleAmountExcludingDiscount),2) 
+		AS TotalDiscountPercentage
 FROM 
 	KPI
 GROUP BY
